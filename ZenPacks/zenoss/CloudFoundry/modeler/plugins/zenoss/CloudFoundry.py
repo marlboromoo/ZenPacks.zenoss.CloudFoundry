@@ -157,8 +157,10 @@ class CloudFoundry(PythonPlugin):
             rel_maps.extend(self.getRuntimesRelMaps(
                 data['runtimes'], 'cfFrameworks/{0}'.format(framework_id)))
 
-            rel_maps.extend(self.getAppServersRelMaps(
-                data['appservers'], 'cfFrameworks/{0}'.format(framework_id)))
+            #. there is no key 'appservers' in commit: a1ce3d3a73613e7c62338f12f1bc098caf71bc6a
+            #. ref: https://github.com/cloudfoundry/cloud_controller/commit/a1ce3d3a73613e7c62338f12f1bc098caf71bc6a
+            #rel_maps.extend(self.getAppServersRelMaps(
+            #    data['appservers'], 'cfFrameworks/{0}'.format(framework_id)))
 
         return [RelationshipMap(
             relname='cfFrameworks',
